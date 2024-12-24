@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Determination', sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden; /* Убирает полосы прокрутки */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+    z-index: 1;
+}
+
+.games-list {
+    width: 20%;
+    padding-right: 10px;
+}
+
+.games-list h1 {
+    color: #00f;
+    margin-bottom: 20px;
+}
+
+.games-list ul {
+    list-style-type: none;
+}
+
+.games-list li {
+    margin: 15px 0;
+}
+
+.game-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    border-bottom: 2px solid #fff;
+    padding: 5px;
+}
+
+.game-link:hover {
+    color: #00f;
+}
+
+.game-info {
+    width: 70%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.game-info .logo {
+    margin-bottom: 20px;
+}
+
+.game-info .description {
+    margin-bottom: 20px;
+}
+
+.game-info .download-link a {
+    color: #00f;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.game-info .download-link a:hover {
+    text-decoration: underline;
+}
+
+.white-line {
+    position: absolute;
+    width: 1px; /* Вертикальная линия */
+    height: 100%; /* Покрывает всю высоту */
+    background-color: #fff;
+    top: 0;
+    left: 50%; /* Центрирует линию по горизонтали */
+    transform: translateX(-50%); /* Подгоняет по центру */
+    z-index: 0;
+}
+
+/* Контейнер для снежинок */
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Чтобы снежинки не перекрывали элементы сайта */
+    z-index: 2;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    font-size: 24px; /* Размер снежинки */
+    color: #fff;
+    opacity: 0.8;
+    line-height: 1;
+    animation: fall linear infinite, spin 6s linear infinite; /* Сделали анимацию быстрее */
+}
+
+.snowflake:nth-child(odd) {
+    animation-duration: 7s; /* Разное время падения для случайности */
+}
+
+.snowflake:nth-child(even) {
+    animation-duration: 8s; /* Разное время падения для случайности */
+}
+
+/* Анимация падения снежинок */
+@keyframes fall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Анимация вращения снежинок */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
